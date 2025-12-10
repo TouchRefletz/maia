@@ -135,7 +135,6 @@ export function extrairProficienciaUltimoPasso(dadosPassoAnterior) {
 
 export async function passo(questao, passoStatus, dadosPassoAnterior = null) {
     let promptDaIA = gerarPromptIA(questao, passoStatus, dadosPassoAnterior);
-    console.log(promptDaIA);
 
     var JSONEsperado = {
         "type": "object",
@@ -176,7 +175,6 @@ export async function passo(questao, passoStatus, dadosPassoAnterior = null) {
 
     respostaPasso = await gerarConteudoEmJSON(promptDaIA, JSONEsperado);
     numPasso++;
-    console.log("Próxima etapa gerada:", respostaPasso);
 
     if (respostaPasso.status === "concluido") {
         criarPassoFinalizacao(dadosPassoAnterior, topicosRevisao);
@@ -212,9 +210,6 @@ export async function passo(questao, passoStatus, dadosPassoAnterior = null) {
 
         document.querySelectorAll('.input').forEach(element => element.remove());
         document.querySelectorAll('.passoButton').forEach(element => element.remove());
-
-        console.log(passoStatus);
-        console.log(passoStatus ? "verdadeira" : "falsa");
     }
 
     atualizarTopicosRevisao(respostaPasso.topicos_para_revisao);

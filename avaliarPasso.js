@@ -37,12 +37,10 @@ export function avaliarPasso(guess, respostaBoolean, tempoPasso, tempoIdeal, res
             mediaPassos: mediaPassos
         }
     };
-    console.log("Detalhes do passo avaliado:", JSONPasso);
 
     passosAnteriores.push(JSONPasso);
 
     var passoStatus = Math.random() < 0.5;
-    console.log("Passo status:", passoStatus);
 
     const dadosPasso = JSONPasso[`passo_${numPasso}`];
     const secaoStats = criarSecaoEstatisticas(dadosPasso);

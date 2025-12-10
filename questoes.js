@@ -41,11 +41,9 @@ export async function criarQuestao(promptUsuario = null, dificuldade = 0.5) {
   };
 
   resposta = await gerarConteudoEmJSON(promptDaIA, JSONEsperado);
-  console.log("Questão gerada:", resposta);
 
   gerarConteudoQuestao(resposta);
 
   var passoStatus = Math.random() < 0.5;
-  console.log("Passo status:", passoStatus);
   passo(resposta, passoStatus);
 }
