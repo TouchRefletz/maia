@@ -201,19 +201,6 @@ Este projeto implementa conceitos de:
 
 ---
 
-## 🚧 Roadmap (Próximas Versões)
-
-- [ ] Persistência em banco de dados (Firebase/MongoDB)
-- [ ] Histórico de sessões do aluno
-- [ ] Modo "Desafio Rápido" com cronômetro global
-- [ ] Sistema de badges e níveis
-- [ ] Análise de progresso ao longo do tempo (Dashboard)
-- [ ] Suporte a múltiplos idiomas
-- [ ] Modo offline com sincronização
-- [ ] Integração com LMS (Moodle, Google Classroom)
-
----
-
 ## 📝 Licença
 
 Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
