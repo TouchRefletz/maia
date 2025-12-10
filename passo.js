@@ -21,6 +21,7 @@ function gerarPromptIA(questao, passoStatus, dadosPassos) {
     }
 
     const temHistorico = historicoLinear.length > 0;
+    if (!temHistorico) numPasso = 0;
     const ultimoPasso = temHistorico ? historicoLinear[historicoLinear.length - 1] : null;
 
     // 2. EXTRAIR LISTA DE ENUNCIADOS E EXPLICAÇÕES ANTERIORES
