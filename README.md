@@ -107,7 +107,7 @@ O projeto foi construído sobre os pilares da **Zona de Desenvolvimento Proximal
 *   ✅ A API Key é armazenada **apenas na memória do navegador** (`sessionStorage`)
 *   ✅ Não é persisted em disco ou enviada para servidores terceiros
 *   ✅ Recomenda-se **restringir a chave** no Google AI Studio para domínios específicos
-*   ✅ Para uso em produção, implemente um backend próprio com proxy seguro
+*   ⚠️ Ao inserir sua chave em nosso site, você está consciente dos possíveis riscos de vazamento dela.
 
 ---
 
