@@ -224,7 +224,7 @@ Se você deseja contribuir com melhorias:
 
 ---
 
-> Desenvolvido com 💙 e ☕ para a FEBRACE 2026
+> Desenvolvido com 💙 e ☕ por ToqueReflexo
 >
 > **Maia.ai** – Tornando a educação adaptativa, personalizada e inteligente.
 >
