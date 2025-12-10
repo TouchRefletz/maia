@@ -24,13 +24,13 @@ export function gerarInputContainer() {
     document.getElementById('promptButton').addEventListener('click', () => {
         armazenarPromptQuestao(document.getElementById("promptInput").value);
         criarQuestao();
-        
+
         const promptContainer = document.getElementById('promptContainer');
         promptContainer.classList.add('fade-out');
 
         setTimeout(() => {
             generateSkeletonAndQuestion(true);
-        }, 500); 
+        }, 500);
     });
 }
 
@@ -136,8 +136,20 @@ function customAlert(message, duration = 5000) {
     };
 }
 
+let questaoController = null;
+
 export function gerarConteudoQuestao(resposta) {
     document.querySelectorAll("#questionSkeleton").forEach(skeleton => skeleton.remove());
+
+    // 2. Se já existir um controller (de uma questão anterior), aborte ele!
+    // Isso remove o event listener antigo automaticamente.
+    if (questaoController) {
+        questaoController.abort();
+    }
+
+    // 3. Crie um novo controller para a questão atual
+    questaoController = new AbortController();
+
     document.body.innerHTML += `
         <div id="question" class="question">
             <div id="questionText">
@@ -172,7 +184,7 @@ export function gerarConteudoQuestao(resposta) {
         var respostaCerta = resposta.resposta_correta;
 
         verificarRespostas(respostaCerta, selecionada, true);
-    });
+    }, { signal: questaoController.signal });
 
 
     gerarSkeletonPasso();
@@ -197,15 +209,18 @@ function verificarRespostas(respostaCerta, selecionada, usuario) {
 
     // 3. Lógica de transição (apenas se for o usuário)
     if (usuario) {
-        const todasAlternativas = document.querySelectorAll(".answerOption");
-        // Bloqueia cliques para não bugar
+        const containerAtual = selecionada.parentElement;
+
+        // Agora buscamos as opções apenas dentro desse container
+        const todasAlternativas = containerAtual.querySelectorAll(".answerOption");
+
         todasAlternativas.forEach(op => op.style.pointerEvents = 'none');
 
         setTimeout(() => {
-            // Revela a resposta certa se o usuário errou
             todasAlternativas.forEach((alternativa) => {
                 const letraAlternativa = alternativa.querySelector(".option-letter").innerText.replace(")", "").trim();
 
+                // A lógica se mantém, mas agora aplicada apenas ao grupo certo
                 if (letraAlternativa === respostaCerta && alternativa !== selecionada) {
                     alternativa.classList.add("correct");
                 }

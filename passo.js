@@ -1,7 +1,6 @@
 import { gerarConteudoEmJSON } from './gemini.js';
-import { criarQuestao } from './questoes.js';
 import { avaliarPasso } from './avaliarPasso.js';
-import { gerarInputContainer, criarPassoHTML, criarPassoFinalizacao } from './generateHTML.js';
+import { criarPassoHTML, criarPassoFinalizacao } from './generateHTML.js';
 
 let topicosRevisao = [];
 let numPasso = 0;
