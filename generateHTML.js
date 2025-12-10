@@ -139,7 +139,7 @@ function customAlert(message, duration = 5000) {
 export function gerarConteudoQuestao(resposta) {
     document.querySelectorAll("#questionSkeleton").forEach(skeleton => skeleton.remove());
     document.body.innerHTML += `
-        <div id="question">
+        <div id="question" class="question">
             <div id="questionText">
                 <p>${resposta.questao}</p>
             </div>
@@ -179,6 +179,11 @@ export function gerarConteudoQuestao(resposta) {
 }
 
 function verificarRespostas(respostaCerta, selecionada, usuario) {
+    document.querySelector('#correctAnswer h1').remove();
+    document.querySelectorAll('#correctAnswer > h4, #correctAnswer > p').forEach(el => {
+        el.style.filter = 'none';
+    });
+
     // 1. Pega a letra e define se acertou
     const letraSelecionada = selecionada.querySelector(".option-letter").innerText.replace(")", "").trim();
     const acertou = (letraSelecionada === respostaCerta); // Retorna true ou false
@@ -308,7 +313,7 @@ export function criarPassoHTML(respostaPasso, numPasso, passoStatus) {
     `;
     document.body.innerHTML += htmlFinal;
     initializeGuessRange();
-    document.querySelectorAll(".guessButton").forEach((element) => {
+    document.querySelectorAll(".guessButton, .newPassoButton").forEach((element) => {
         element.addEventListener("click", () => {
             document.querySelector('.explicacao h1').remove();
             document.querySelectorAll('.explicacao > h3, .explicacao > p').forEach(el => {

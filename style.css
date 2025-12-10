@@ -924,7 +924,7 @@ body {
     }
 }
 
-#questionSkeleton, #question {
+#questionSkeleton, .question {
     width: 100%;
     max-width: 850px;
     border-radius: var(--radius-lg);
@@ -945,7 +945,7 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-#question {
+.question {
     height: auto;
 }
 
@@ -1115,7 +1115,6 @@ body {
 #correctAnswer {
     height: auto;
     position: relative;
-    min-height: 150px;
 }
 
 #correctAnswer > h1 {
@@ -1419,7 +1418,7 @@ body {
         margin: var(--space-20) auto 0 auto;
     }
 
-    #questionSkeleton, #question {
+    #questionSkeleton, .question {
         max-width: 100%;
         padding: var(--space-16);
         border-radius: var(--radius-md);
